@@ -55,19 +55,36 @@ CREATE TABLE question_likes (
 INSERT INTO
   users (fname, lname)
 VALUES
-  ('Josh', 'Arriola');
+  ('Josh', 'Arriola'),
+  ('Nero', 'Chen'),
+  ('Bob', 'Doe');
 
 INSERT INTO
   questions (title, body, author_id)
 VALUES
-  ('Josh Question', 'JOSH JOSH JOSH', (SELECT id FROM users WHERE fname = 'Josh'));
+  ('Josh Question', 'JOSH JOSH JOSH', 1),
+  ('Nero Question', 'NERO NERO NERO', 2),
+  ('Bob Question', 'BOB BOB BOB', 3);
   
 INSERT INTO
   question_follows (user_id, question_id)
 VALUES
-  ((SELECT id FROM users WHERE fname = 'Josh'), (SELECT id FROM questions WHERE title = 'Josh Question'));
+  (1, 1),
+  (2, 2),
+  (3, 3);
   
 INSERT INTO
   replies (question_id, parent_id, user_id, body)
 VALUES
-  ((SELECT id FROM questions WHERE title = 'Josh Question'), NULL, (SELECT id FROM users WHERE fname = 'Josh'), 'JOSH JOSH JOSH');
+  (1, NULL, 2, 'nero-nero-nero'),
+  (1, 1, 1, 'josh-josh-josh'),
+  (1, 1, 3, 'bob-bob-bob' );
+  
+INSERT INTO
+  question_likes(user_id, question_id)
+VALUES
+  (2, 1),
+  (3, 1),
+  (1, 2),
+  (3, 2);
+
