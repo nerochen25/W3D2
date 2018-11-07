@@ -71,7 +71,7 @@ INSERT INTO
 VALUES
   (1, 1),
   (2, 2),
-  (3, 3);
+  (2, 1);
   
 INSERT INTO
   replies (question_id, parent_id, user_id, body)

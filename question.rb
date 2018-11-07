@@ -1,6 +1,7 @@
 require_relative 'questionDBconnection'
 require_relative 'user'
 require_relative 'reply'
+require_relative 'question_follow'
 
 class Question
   def self.find_by_author_id(author_id)
@@ -44,6 +45,10 @@ class Question
   
   def replies
     Reply.find_by_question_id(@id)
+  end
+  
+  def followers
+    QuestionFollow.followers_for_question_id(@id)
   end
   
 end
